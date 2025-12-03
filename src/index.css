@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 270 91% 41%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 270 91% 51%;
+    --primary-light: 270 70% 65%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 270 91% 41%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 270 91% 41%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(270 91% 41%), hsl(270 91% 51%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 20% 8%), hsl(220 18% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(220 18% 12%), hsl(220 15% 14%));
+    --shadow-glow: 0 0 40px hsl(270 91% 41% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+  }
+}
